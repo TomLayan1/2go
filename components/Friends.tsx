@@ -1,5 +1,6 @@
 import { Pressable, Text, View } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import ChatList from "./ChatsList";
 
 type FriendsPropType = {
   section: string;
@@ -30,26 +31,29 @@ export default function Friends({ section, setSection }: FriendsPropType) {
   }
 
   return(
-    <View className="w-full flex-row items-center justify-between">
-      <View className="flex-row items-center gap-5">
-        {AVAILABILITY?.map(item => (
-            <Pressable
-              onPress={() => toggleAvailability(item.id)}
-              key={item.id}
-              className="flex-column items-center"
-            >
-              <Text className={`${section === item.status && section === "Online" 
-                ? "text-[#3abd43]" : section === item.status && section === "Away" 
-                ? "text-[#ab922c]" : section === item.status && section === "Offline" 
-                ? "text-[#a6a6a6]" : "text-[#607182]"} text-[15px]`}>{item.status}</Text>
-              <Ionicons name="ellipse" size={7} color={`${section === item.status && section === "Online" 
-                ? "#3abd43" : section === item.status && section === "Away" 
-                ? "#ab922c" : section === item.status && section === "Offline" 
-                ? "#a6a6a6" : "#607182"}`} />
-            </Pressable>
-          ))}
+    <View>
+      <View className="w-full flex-row items-center justify-between mb-6">
+        <View className="flex-row items-center gap-7">
+          {AVAILABILITY?.map(item => (
+              <Pressable
+                onPress={() => toggleAvailability(item.id)}
+                key={item.id}
+                className="flex-column items-center"
+              >
+                <Text className={`${section === item.status && section === "Online" 
+                  ? "text-[#3abd43]" : section === item.status && section === "Away" 
+                  ? "text-[#ab922c]" : section === item.status && section === "Offline" 
+                  ? "text-[#a6a6a6]" : "text-[#607182]"} text-[15px]`}>{item.status}</Text>
+                <Ionicons name="ellipse" size={7} color={`${section === item.status && section === "Online" 
+                  ? "#3abd43" : section === item.status && section === "Away" 
+                  ? "#ab922c" : section === item.status && section === "Offline" 
+                  ? "#a6a6a6" : "#607182"}`} />
+              </Pressable>
+            ))}
+        </View>
+        <Ionicons name="menu" size={19} color={"#607182"} />
       </View>
-      <Ionicons name="menu" size={19} color={"#ffffff"} />
+      <ChatList section={section} />
     </View>
   )
 }
