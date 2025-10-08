@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Stories from './stories';
 import Calls from './calls';
-import Chats from './chats';
+import ChatLayout from './chat/_layout';
 import Communities from './communities';
 import Settings from './settings';
 
@@ -58,7 +58,7 @@ export default function RootLayout() {
         />
         <Tab.Screen 
           name="Chats"
-          component={Chats}
+          component={ChatLayout}
           options={{
             tabBarIcon: ({ color, size }) => (
               <ChatLeftIcon width={size} height={size} fill={color} />

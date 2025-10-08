@@ -1,15 +1,33 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { FlatList, Image, Pressable, Text, View } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { ImageSourcePropType } from "react-native";
 import { FRIENDS } from "../data";
+import { useNavigation } from "@react-navigation/native";
 
-interface FriendType {
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type ChatsStackParamList = {
+  ChatsList: undefined;
+  ChatDetail: { id: number };
+};
+
+type NavigationProp = NativeStackNavigationProp<ChatsStackParamList, "ChatsList">;
+
+interface ChatsType {
+  id: number;
+  sender: string;
+  message: string;
+  time: string;
+}
+
+export interface FriendType {
   id: number;
   username: string,
   image: ImageSourcePropType;
-  staus: string;
+  status: string;
   level: string;
   availability: string;
+  chats: ChatsType[];
 }
 
 type ChatListPropType = {
@@ -17,8 +35,11 @@ type ChatListPropType = {
 }
 
 export default function ChatList({ section }: ChatListPropType) {
-  const filteredList = FRIENDS?.filter(item => item.availability === section.toLowerCase())
-  console.log(filteredList)
+  const navigation = useNavigation<NavigationProp>();
+
+  // Filter friend line 
+  const filteredList: FriendType[] = FRIENDS?.filter(item => item.availability === section.toLowerCase())
+  console.log("Section: ", section)
 
   return (
     <View>
@@ -27,7 +48,7 @@ export default function ChatList({ section }: ChatListPropType) {
         keyExtractor={(item) => (item.id.toString())}
         ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
         renderItem={({ item }) => (
-          <View className="w-full flex-row items-center gap-5">
+          <Pressable onPress={() => navigation.navigate("ChatDetail", { id: item.id })} className="w-full flex-row items-center gap-5">
             <Image source={item.image} />
             <View className="flex-1 flex-row items-center justify-between gap-5 border-b-[0.3px] border-b-[#b2afb6] py-2">
               <View className="flex-1 flex-col gap-1.5">
@@ -50,7 +71,7 @@ export default function ChatList({ section }: ChatListPropType) {
                 <Ionicons name="ellipse" size={11} color={`${item.availability === 'online' ? '#3abd43' : item.availability === 'away' ? '#ab922c' : '#a6a6a6'}`} />
               </View>
             </View>
-          </View>
+          </Pressable>
         )}
       />
     </View>

@@ -22,7 +22,6 @@ export default function Friends({ section, setSection }: FriendsPropType) {
       status: "Offline"
     }
   ]
-  console.log("Section: ", section)
 
   // Toggle between online, away and offline
   const toggleAvailability = (id: number) => {
@@ -32,24 +31,40 @@ export default function Friends({ section, setSection }: FriendsPropType) {
 
   return(
     <View>
-      <View className="w-full flex-row items-center justify-between mb-6">
+      <View className="w-full py-4 px-2 flex-row items-center justify-between mb-6">
         <View className="flex-row items-center gap-7">
           {AVAILABILITY?.map(item => (
-              <Pressable
-                onPress={() => toggleAvailability(item.id)}
-                key={item.id}
-                className="flex-column items-center"
+            <Pressable
+              onPress={() => toggleAvailability(item.id)}
+              key={item.id}
+              className="items-center"
+            >
+              <Text
+                className={`${section === item.status && section === "Online"
+                    ? "text-[#3abd43]"
+                    : section === item.status && section === "Away"
+                      ? "text-[#ab922c]"
+                      : section === item.status && section === "Offline"
+                        ? "text-[#a6a6a6]"
+                        : "text-[#607182]"
+                  } text-[15px]`}
               >
-                <Text className={`${section === item.status && section === "Online" 
-                  ? "text-[#3abd43]" : section === item.status && section === "Away" 
-                  ? "text-[#ab922c]" : section === item.status && section === "Offline" 
-                  ? "text-[#a6a6a6]" : "text-[#607182]"} text-[15px]`}>{item.status}</Text>
-                <Ionicons name="ellipse" size={7} color={`${section === item.status && section === "Online" 
-                  ? "#3abd43" : section === item.status && section === "Away" 
-                  ? "#ab922c" : section === item.status && section === "Offline" 
-                  ? "#a6a6a6" : "#607182"}`} />
-              </Pressable>
-            ))}
+                {item.status}
+              </Text>
+              <Ionicons
+                name="ellipse"
+                size={7}
+                color={`${section === item.status && section === "Online"
+                    ? "#3abd43"
+                    : section === item.status && section === "Away"
+                      ? "#ab922c"
+                      : section === item.status && section === "Offline"
+                        ? "#a6a6a6"
+                        : "#607182"
+                  }`}
+              />
+            </Pressable>
+          ))}
         </View>
         <Ionicons name="menu" size={19} color={"#607182"} />
       </View>

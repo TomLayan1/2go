@@ -1,3 +1,5 @@
+
+
 export const FRIENDS = [
   {
     id: 1,
@@ -5,7 +7,13 @@ export const FRIENDS = [
     image: require('./assets/friends/wizkid.png'),
     status: "Yo! check your iMessage",
     level: "amature",
-    availability: "online"
+    availability: "online",
+    chats: [
+      { id: 1, sender: "Wizkidayo", message: "Just finished rehearsing for the show!", time: "02:00 PM" },
+      { id: 2, sender: "You", message: "You’re gonna kill it bro 🔥", time: "02:03 PM" },
+      { id: 3, sender: "Wizkidayo", message: "Thanks my G! Pull up if you can.", time: "02:05 PM" },
+      { id: 4, sender: "You", message: "Wouldn’t miss it!", time: "02:06 PM" },
+    ],
   },
   {
     id: 2,
@@ -13,7 +21,12 @@ export const FRIENDS = [
     image: require('./assets/friends/lionel-messi.png'),
     status: "Just won the world cup",
     level: "expert",
-    availability: "online"
+    availability: "online",
+    chats: [
+      { id: 1, sender: "Lionel Messi", message: "We did it again 🇦🇷🏆", time: "09:00 AM" },
+      { id: 2, sender: "You", message: "GOAT energy only!", time: "09:02 AM" },
+      { id: 3, sender: "Lionel Messi", message: "Gracias amigo 🙏", time: "09:03 AM" },
+    ],
   },
   {
     id: 3,
@@ -21,7 +34,12 @@ export const FRIENDS = [
     image: require('./assets/friends/bill-gates.png'),
     status: "I'm in a meeting",
     level: "novice",
-    availability: "online"
+    availability: "online",
+    chats: [
+      { id: 1, sender: "Bill Gates", message: "Having a tech talk soon.", time: "10:00 AM" },
+      { id: 2, sender: "You", message: "Will it be streamed?", time: "10:02 AM" },
+      { id: 3, sender: "Bill Gates", message: "Yes, I’ll share the link.", time: "10:03 AM" },
+    ],
   },
   {
     id: 4,
@@ -29,7 +47,11 @@ export const FRIENDS = [
     image: require('./assets/friends/tiger-woods.png'),
     status: "The greated thing about tomorrow is it will be better than",
     level: "master",
-    availability: "online"
+    availability: "online",
+    chats: [
+      { id: 1, sender: "Tiger Woods", message: "Just hit a new record!", time: "08:00 AM" },
+      { id: 2, sender: "You", message: "Congrats, champ! ⛳", time: "08:02 AM" },
+    ],
   },
   {
     id: 5,
@@ -37,7 +59,11 @@ export const FRIENDS = [
     image: require('./assets/friends/lewis-hamilton.png'),
     status: "I was born to race and to win.",
     level: "professional",
-    availability: "online"
+    availability: "online",
+    chats: [
+      { id: 1, sender: "Lewis Hamilton", message: "Race weekend’s here!", time: "11:00 AM" },
+      { id: 2, sender: "You", message: "All the best 🏎️💨", time: "11:01 AM" },
+    ],
   },
   {
     id: 6,
@@ -45,7 +71,11 @@ export const FRIENDS = [
     image: require('./assets/friends/lebron-james.png'),
     status: "I like criticism, it make me strong.",
     level: "senior",
-    availability: "online"
+    availability: "online",
+    chats: [
+      { id: 1, sender: "Lebron James", message: "Training session done.", time: "07:00 AM" },
+      { id: 2, sender: "You", message: "Keep grinding King 👑", time: "07:03 AM" },
+    ],
   },
   {
     id: 7,
@@ -53,7 +83,11 @@ export const FRIENDS = [
     image: require('./assets/friends/tems.png'),
     status: "Lagos concerts for the the gangs this December",
     level: "veteran",
-    availability: "online"
+    availability: "online",
+    chats: [
+      { id: 1, sender: "Tems", message: "Studio vibes all night 🎶", time: "03:00 PM" },
+      { id: 2, sender: "You", message: "Drop that new track already 😍", time: "03:02 PM" },
+    ],
   },
   {
     id: 8,
@@ -61,7 +95,11 @@ export const FRIENDS = [
     image: require('./assets/friends/wole-shoyinka.png'),
     status: "I am a very curious person, I'll always ask.",
     level: "master",
-    availability: "online"
+    availability: "online",
+    chats: [
+      { id: 1, sender: "Wole Shoyinka", message: "Reading a new manuscript.", time: "01:00 PM" },
+      { id: 2, sender: "You", message: "Would love to read your next work.", time: "01:02 PM" },
+    ],
   },
   {
     id: 9,
@@ -69,7 +107,11 @@ export const FRIENDS = [
     image: require('./assets/friends/tasty-pastries.png'),
     status: "Your order is ready!",
     level: "novice",
-    availability: "online"
+    availability: "online",
+    chats: [
+      { id: 1, sender: "Tasty Pastries", message: "Freshly baked for you!", time: "12:00 PM" },
+      { id: 2, sender: "You", message: "On my way to pick it up 🍰", time: "12:02 PM" },
+    ],
   },
   {
     id: 10,
@@ -77,7 +119,17 @@ export const FRIENDS = [
     image: require('./assets/friends/jackie-chan.png'),
     status: "Yo! check your iMessage",
     level: "amature",
-    availability: "away"
+    availability: "away",
+    chats: [
+      { id: 1, sender: "Jackie Chan", message: "Just wrapped a stunt scene.", time: "02:00 PM" },
+      { id: 2, sender: "You", message: "Still doing your own stunts? Legend!", time: "02:02 PM" },
+      { id: 3, sender: "Jackie Chan", message: "Always! Keeps me young 😄", time: "02:04 PM" },
+      { id: 4, sender: "You", message: "You make it look effortless.", time: "02:06 PM" },
+      { id: 5, sender: "Jackie Chan", message: "It’s all practice and timing.", time: "02:08 PM" },
+      { id: 6, sender: "You", message: "Respect! True martial arts master.", time: "02:10 PM" },
+      { id: 7, sender: "Jackie Chan", message: "Discipline is everything.", time: "02:12 PM" },
+      { id: 8, sender: "You", message: "Can’t wait for your next movie!", time: "02:14 PM" },
+    ],
   },
   {
     id: 11,
@@ -85,7 +137,11 @@ export const FRIENDS = [
     image: require('./assets/friends/lionel-messi.png'),
     status: "Just won the world cup",
     level: "expert",
-    availability: "away"
+    availability: "away",
+    chats: [
+      { id: 1, sender: "Lionel Messi", message: "Taking a little vacation.", time: "09:00 PM" },
+      { id: 2, sender: "You", message: "Well deserved, champ!", time: "09:02 PM" },
+    ],
   },
   {
     id: 12,
@@ -93,7 +149,11 @@ export const FRIENDS = [
     image: require('./assets/friends/bill-gates.png'),
     status: "I'm in a meeting",
     level: "novice",
-    availability: "away"
+    availability: "away",
+    chats: [
+      { id: 1, sender: "Bill Gates", message: "Conference starts soon.", time: "10:00 AM" },
+      { id: 2, sender: "You", message: "Good luck!", time: "10:01 AM" },
+    ],
   },
   {
     id: 13,
@@ -101,7 +161,11 @@ export const FRIENDS = [
     image: require('./assets/friends/tiger-woods.png'),
     status: "The greated thing about tomorrow is it will be better than",
     level: "master",
-    availability: "away"
+    availability: "away",
+    chats: [
+      { id: 1, sender: "Tiger Woods", message: "Long day at the course.", time: "08:00 PM" },
+      { id: 2, sender: "You", message: "Rest well, legend.", time: "08:02 PM" },
+    ],
   },
   {
     id: 14,
@@ -109,7 +173,11 @@ export const FRIENDS = [
     image: require('./assets/friends/lewis-hamilton.png'),
     status: "I was born to race and to win.",
     level: "professional",
-    availability: "away"
+    availability: "away",
+    chats: [
+      { id: 1, sender: "Lewis Hamilton", message: "Tomorrow’s qualifying day.", time: "11:00 PM" },
+      { id: 2, sender: "You", message: "You got this 💪", time: "11:02 PM" },
+    ],
   },
   {
     id: 15,
@@ -117,7 +185,11 @@ export const FRIENDS = [
     image: require('./assets/friends/lebron-james.png'),
     status: "I like criticism, it make me strong.",
     level: "senior",
-    availability: "away"
+    availability: "away",
+    chats: [
+      { id: 1, sender: "Lebron James", message: "Post-game recovery time.", time: "07:00 PM" },
+      { id: 2, sender: "You", message: "Ice bath time 😅", time: "07:02 PM" },
+    ],
   },
   {
     id: 16,
@@ -125,7 +197,11 @@ export const FRIENDS = [
     image: require('./assets/friends/tems.png'),
     status: "Lagos concerts for the the gangs this December",
     level: "veteran",
-    availability: "away"
+    availability: "away",
+    chats: [
+      { id: 1, sender: "Tems", message: "Heading to rehearsals.", time: "03:00 PM" },
+      { id: 2, sender: "You", message: "Smash it as always 🎤", time: "03:01 PM" },
+    ],
   },
   {
     id: 17,
@@ -133,7 +209,11 @@ export const FRIENDS = [
     image: require('./assets/friends/wole-shoyinka.png'),
     status: "I am a very curious person, I'll always ask.",
     level: "master",
-    availability: "away"
+    availability: "away",
+    chats: [
+      { id: 1, sender: "Wole Shoyinka", message: "Working on new literature.", time: "01:00 PM" },
+      { id: 2, sender: "You", message: "Can't wait to read it.", time: "01:01 PM" },
+    ],
   },
   {
     id: 18,
@@ -141,6 +221,10 @@ export const FRIENDS = [
     image: require('./assets/friends/tasty-pastries.png'),
     status: "Your order is ready!",
     level: "novice",
-    availability: "away"
-  }
-]
+    availability: "away",
+    chats: [
+      { id: 1, sender: "Tasty Pastries", message: "Fresh doughnuts just arrived!", time: "12:00 PM" },
+      { id: 2, sender: "You", message: "Save me six 😋", time: "12:02 PM" },
+    ],
+  },
+];
