@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function Login() {
+export default function Communities() {
   return (
     <View>
-      <Text className='text-3xl'>Login</Text>
+      <Text>Communities</Text>
     </View>
   )
 }

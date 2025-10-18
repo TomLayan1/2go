@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function GetStarted() {
+export default function stories() {
   return (
     <View>
-      <Text>GetStarted</Text>
+      <Text>stories</Text>
     </View>
   )
 }
