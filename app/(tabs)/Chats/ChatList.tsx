@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function Calls() {
+export default function ChatList() {
   return (
     <View>
-      <Text>Calls</Text>
+      <Text>ChatList</Text>
     </View>
   )
 }

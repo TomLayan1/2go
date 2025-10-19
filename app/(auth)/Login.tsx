@@ -28,7 +28,7 @@ export default function Login() {
         <Text className='text-[#3abd43]'> Sign Up</Text>
       </Text>
       <Pressable className='bg-[#3abd43] w-[80%] py-5 rounded-full mx-auto'>
-        <Link href="/(tabs)">
+        <Link href="/(tabs)/Chats">
           <Text className='text-white text-center text-[18px]'>Continue</Text>
         </Link>
       </Pressable>
