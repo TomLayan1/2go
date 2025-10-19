@@ -14,6 +14,7 @@ export default function TabsLayout() {
   return (
     <Tabs
       initialRouteName='Chats'
+      safeAreaInsets={{ bottom: 0 }}
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
