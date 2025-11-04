@@ -3,10 +3,8 @@ import React from 'react'
 
 export default function Calls() {
   return (
-    <View>
+    <View className='flex-1 items-center justify-center'>
       <Text>Calls</Text>
     </View>
   )
 }
-
-const styles = StyleSheet.create({})

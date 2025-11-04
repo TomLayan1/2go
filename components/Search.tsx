@@ -1,7 +1,7 @@
 import { Image, TextInput, View } from "react-native";
 
 // Search icon
-const SearchIcon = require('../../assets/icons/search.png')
+const SearchIcon = require('../assets/icons/search.png')
 
 export default function Search() {
 
