@@ -4,15 +4,16 @@ import { Image } from "react-native";
 // icons
 const StoriesIcon = require("../../assets/icons/stories.png");
 const CallIcon = require("../../assets/icons/phone.png");
-const ChatLeftIcon = require("../../assets/icons/chat-left.png");
+const ChatRightIcon = require("../../assets/icons/chat-right.png");
 const CommunitiesIcon = require("../../assets/icons/communities.png");
 const SettingsIcon = require("../../assets/icons/settings.png");
 
 export default function RootLayout() {
   const pathName = usePathname();
+  console.log(pathName)
 
   // Hide bottom tab in chat details [id].tsx
-  const hideBtmTab = pathName.includes("(Chats)/[id]");
+  const hideBtmTab = /^\/\d+$/.test(pathName);
 
   return (
     <Tabs
@@ -22,8 +23,9 @@ export default function RootLayout() {
         tabBarStyle: [
           {
             backgroundColor: "#0b304a",
-            borderTopWidth: 0.5,
-            height: 85,
+            borderTopWidth: 0.4,
+            height: 76,
+            paddingTop: 2
           },
           hideBtmTab ? { display: "none" } : null,
         ],
@@ -67,7 +69,7 @@ export default function RootLayout() {
           title: "Chats",
           tabBarIcon: ({ color, size }) => (
             <Image
-              source={ChatLeftIcon}
+              source={ChatRightIcon}
               style={{ width: size, height: size, tintColor: color }}
             />
           ),

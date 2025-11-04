@@ -8,6 +8,8 @@ type GoStoreType = {
   getFriendById: (id: number) => void;
   message: string;
   handleSend: () => void;
+  showCallOption: boolean;
+  toggleCallOption: () => void;
 }
 
 export const use2goStore = create<GoStoreType>((set, get) => ({
@@ -20,5 +22,7 @@ export const use2goStore = create<GoStoreType>((set, get) => ({
   message: "",
   handleSend: () => {
 
-  }
+  },
+  showCallOption: false,
+  toggleCallOption: () => set((state) => ({ showCallOption: !state.showCallOption}))
 }))
