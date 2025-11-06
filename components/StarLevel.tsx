@@ -6,14 +6,14 @@ const master = require('../assets/icons/master.png');
 const ultimate = require('../assets/icons/ultimate.png')
 
 export default function StarLevel() {
-  const [showLevels, setShowLevels] = useState(true);
+  const [showLevels, setShowLevels] = useState(false);
   console.log(showLevels)
   const calc = (value: number) => {
     // Round to 1 dp
     return value.toFixed(1)
   }
   return (
-    <View className='bg-white/20 border border-white/25 rounded-2xl p-3 relative'>
+    <View className='bg-white/20 border border-white/25 rounded-2xl p-3 mb-16 relative'>
       <View className='w-full flex-row items-center justify-between mb-4'>
         <Text className='text-white text-2xl font-bold'>Your star level</Text>
         <Pressable onPress={() => setShowLevels(true)} className='bg-white py-1 px-3 text-2xl font-extrabold rounded-full'>

@@ -10,7 +10,7 @@ type LevelsPropType = {
 export default function Levels({ setShowLevels }:LevelsPropType ) {
   
   return (
-    <View className='w-[90%] bg-[#0b304ac9] rounded-2xl py-3 px-4 absolute top-0 right-0'>
+    <View className='w-[90%] bg-[#0b304ae0] rounded-2xl py-3 px-4 absolute top-0 right-0 z-50'>
       <Pressable onPress={() => setShowLevels(false)} className='flex-row items-center justify-center self-end mb-4'>
         <Text className='text-white text-[19px]'>x</Text>
       </Pressable>
