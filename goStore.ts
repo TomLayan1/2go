@@ -9,6 +9,7 @@ type GoStoreType = {
   message: string;
   handleSend: () => void;
   showCallOption: boolean;
+  setShowCallOption: (value: boolean) => void;
   toggleCallOption: () => void;
 }
 
@@ -24,5 +25,6 @@ export const use2goStore = create<GoStoreType>((set, get) => ({
 
   },
   showCallOption: false,
+  setShowCallOption: (value: boolean) => set({ showCallOption: value}),
   toggleCallOption: () => set((state) => ({ showCallOption: !state.showCallOption}))
 }))

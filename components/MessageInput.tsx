@@ -2,10 +2,10 @@ import { Image, TextInput, View } from "react-native";
 import { useState } from "react";
 
 // icons
-const Cross = require('../../assets/icons/cross.png')
-const Docs = require('../../assets/icons/docs.png')
-const Mic = require('../../assets/icons/mic.png')
-const Camera = require('../../assets/icons/camera.png')
+const Cross = require('../assets/icons/cross.png')
+const Docs = require('../assets/icons/docs.png')
+const Mic = require('../assets/icons/mic.png')
+const Camera = require('../assets/icons/camera.png')
 
 
 export default function MessageInput () {
@@ -15,7 +15,7 @@ export default function MessageInput () {
 
   return (
     <View>
-      <View className="bg-[#39576b] w-full flex-row items-center px-4 py-2 gap-4">
+      <View className="bg-[#39576b] w-full flex-row items-center px-4 pt-2 pb-6 gap-4">
         <Image source={Cross} alt="Cross" />
         <View className="flex-1 flex-row items-center gap-4 border border-white rounded-full px-4">
           <TextInput

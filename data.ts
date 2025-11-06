@@ -230,3 +230,63 @@ export const FRIENDS = [
     ],
   },
 ];
+
+export const DEMO_USER = {
+  image: require('./assets/friends/user-pics.png'),
+  username: 'Zaza',
+  groupName: 'Rosco321',
+  progress: 84.1,
+  email: 'Zaza321@gmail.com',
+  tel: '09012637588',
+  numberOfRooms: 7,
+  friends: '12/36'
+}
+
+export const howToLevelUp = [
+  'Spending more time on 2go',
+  'Cheating in rooms and adding new friends',
+  'Purchasing Go credits from the store settings'
+]
+
+export const stars = [
+  {
+    star: require('./assets/icons/novice.png'),
+    name: 'Novice'
+  },
+  {
+    star: require('./assets/icons/amateur.png'),
+    name: 'Amateur'
+  },
+  {
+    star: require('./assets/icons/senior.png'),
+    name: 'Senior'
+  },
+  {
+    star: require('./assets/icons/enthusiast.png'),
+    name: 'Enthusiast'
+  },
+  {
+    star: require('./assets/icons/professional.png'),
+    name: 'Professional'
+  },
+  {
+    star: require('./assets/icons/expert.png'),
+    name: 'Expert'
+  },
+  {
+    star: require('./assets/icons/leader.png'),
+    name: 'Leader'
+  },
+  {
+    star: require('./assets/icons/veteran.png'),
+    name: 'Veteran'
+  },
+  {
+    star: require('./assets/icons/master.png'),
+    name: 'Master'
+  },
+  {
+    star: require('./assets/icons/ultimate.png'),
+    name: 'Ultimate'
+  }
+]

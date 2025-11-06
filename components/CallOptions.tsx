@@ -22,12 +22,12 @@ export default function CallOptions() {
   return (
     <BlurView
       intensity={100}
-      tint="default"    
+      tint="dark"    
       style={{
         position: 'absolute',
-        top: 90,
-        right: 0,
-        width: '45%',
+        top: 60,
+        right: 7,
+        width: '60%',
         borderRadius: 11,
         overflow: 'hidden', // ensures rounded corners apply
         zIndex: 20,

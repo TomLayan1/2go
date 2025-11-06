@@ -7,7 +7,7 @@ export default function index() {
   const [section, setSection] = useState<string>("Online");
   
   return (
-    <SafeAreaView className='bg-[#0b304a] flex-1 pt-5 px-6'>
+    <SafeAreaView className='bg-[#0b304a] flex-1 pt-5 px-4 '>
       <Search />
       <FriendList section={section} setSection={setSection} />
     </SafeAreaView>

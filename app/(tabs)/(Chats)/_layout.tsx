@@ -3,9 +3,10 @@ import { Stack, useRouter } from "expo-router";
 import { View, Text, Image, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { use2goStore } from "../../../goStore";
+import CallOptions from "../../../components/CallOptions";
 
 export default function ChatsLayout() {
-  const { currentFriend, toggleCallOption } = use2goStore();
+  const { currentFriend, toggleCallOption, showCallOption } = use2goStore();
   const route = useRouter();
 
   return (
@@ -16,7 +17,7 @@ export default function ChatsLayout() {
         name="[id]"
         options={{
           header: () => (
-            <View className="bg-[#0b304a]">
+            <View className="bg-[#0b304a] relative">
               <View className="bg-[#23455c] flex-row items-center justify-between px-4 py-5 pb-3 mt-12">
                 {/* Left Section */}
                 <View className="flex-row items-center gap-3">
@@ -45,6 +46,7 @@ export default function ChatsLayout() {
                   <Ionicons name="chevron-down-outline" size={10} color="white" />
                 </Pressable>
               </View>
+              {showCallOption && <CallOptions />}
             </View>
           ),
         }}
