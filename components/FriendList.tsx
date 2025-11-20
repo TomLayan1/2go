@@ -31,7 +31,7 @@ export default function FriendList({ section, setSection }: FriendsPropType) {
 
   return (
     <View className="flex-1">
-      <View className="w-full py-4 px-2 flex-row items-center justify-between mb-6">
+      <View className="w-full py-4 px-2 flex-row items-center justify-between mb-2">
         <View className="flex-row items-center gap-7">
           {AVAILABILITY?.map(item => (
             <Pressable

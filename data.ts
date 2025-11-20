@@ -292,35 +292,3 @@ export const stars = [
     name: 'Ultimate'
   }
 ]
-  
-  
-        
-          
-            
-
-// const others = [
-//   {
-//     icon: <Ionicons name="person-outline" size = { 24} color = "white" />,
-//     name: 'My profile'
-//   },
-//   {
-//     icon: <Ionicons name="settings" size = { 24} color = "white" />,
-//     name: 'Settings'
-//   },
-//   {
-//     icon: <Ionicons name="notifications-outline" size = { 24} color = "white" />,
-//     name: 'Notification'
-//   },
-//   {
-//     icon: <Ionicons name="calendar" size = { 24} color = "white" />,
-//     name: 'Calendar'
-//   },
-//   {
-//     icon: <Ionicons name="lock-closed-outline" size = { 24} color = "white" />,
-//     name: 'Privacy'
-//   },
-//   {
-//     icon: <Ionicons name="star-outline" size = { 24} color = "white" />,
-//     name: 'Starred'
-//   },
-// ]

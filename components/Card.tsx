@@ -37,6 +37,7 @@ export default function Card({ section }: ChatListPropType) {
       <FlatList
         data={filteredList}
         keyExtractor={(item) => (item.id.toString())}
+        showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => router.push(`(Chats)/${item.id}`)} className="w-full flex-row items-center gap-5">

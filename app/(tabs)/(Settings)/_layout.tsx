@@ -7,7 +7,6 @@ import { DemoUserType } from '../../../interface';
 
 
 export default function SettingsLayout() {
-  const user: DemoUserType = DEMO_USER;
   const route = useRouter();
 
   return (
@@ -22,16 +21,16 @@ export default function SettingsLayout() {
                   <Pressable onPress={() => route.back()}>
                     <Ionicons name="arrow-back-outline" size={24} color="white" />
                   </Pressable>
-                  {/* <Image
-                    // source={user?.image}
+                  <Image
+                    source={DEMO_USER?.image}
                     className="w-10 h-10 rounded-full"
-                  /> */}
+                  />
                   <View>
                     <Text className="text-white font-semibold text-base">
-                      {/* {user?.username} */}
+                      {DEMO_USER?.username}
                     </Text>
                     <Text className="text-white/80 text-xs">
-                      {/* {user?.groupName} */}
+                      {DEMO_USER?.groupName}
                     </Text>
                   </View>
                 </View>
