@@ -1,6 +1,6 @@
 import { Image, TextInput, Pressable, View } from "react-native";
 import { useState } from "react";
-import Animated, { FadeIn, FadeOut, Layout } from "react-native-reanimated";
+import { Ionicons } from "@expo/vector-icons";
 
 // icons
 const Cross = require("../assets/icons/cross.png");
@@ -19,8 +19,7 @@ export default function MessageInput() {
 
   return (
     <View className="bg-[#39576b] w-full px-4 pt-2 pb-6">
-      <Animated.View
-        layout={Layout.springify()}
+      <View
         className="flex-row items-center gap-4"
       >
         {/* Left icon */}
@@ -44,35 +43,26 @@ export default function MessageInput() {
 
         {/* Right-side icons (Camera + Mic) — hide when typing */}
         {message.length === 0 && (
-          <Animated.View
-            entering={FadeIn.duration(150)}
-            exiting={FadeOut.duration(120)}
-            layout={Layout.springify()}
+          <View
             className="flex-row items-center gap-4"
           >
             <Image source={Camera} />
             <Image source={Mic} />
-          </Animated.View>
+          </View>
         )}
 
         {/* SEND button — shows only when typing */}
         {message.length > 0 && (
-          <Animated.View
-            entering={FadeIn.duration(150)}
-            exiting={FadeOut.duration(120)}
-            layout={Layout.springify()}
-          >
+          <View>
             <Pressable
               onPress={handleSendMessage}
-              className="bg-[#3abd43] px-4 py-2 rounded-full"
+              className="bg-[#3abd43 px-2 py-2 rounded-full"
             >
-              <Animated.Text className="text-white text-[16px]">
-                Send
-              </Animated.Text>
+              <Ionicons name="send" size={20} color={"white"} />
             </Pressable>
-          </Animated.View>
+          </View>
         )}
-      </Animated.View>
+      </View>
     </View>
   );
 }

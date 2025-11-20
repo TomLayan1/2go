@@ -10,7 +10,6 @@ const SettingsIcon = require("../../assets/icons/settings.png");
 
 export default function RootLayout() {
   const pathName = usePathname();
-  console.log(pathName)
 
   // Hide bottom tab in chat details [id].tsx
   const hideBtmTab = /^\/\d+$/.test(pathName);

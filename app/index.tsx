@@ -5,5 +5,5 @@ import RootLayout from './_layout'
 import AuthLayout from './(auth)/_layout'
 
 export default function index() {
-  return <AuthLayout />
+  // return <AuthLayout />
 }

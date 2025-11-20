@@ -4,23 +4,19 @@ import {
   View,
   Image,
   FlatList,
-  KeyboardAvoidingView,
-  TextInput,
   Keyboard,
-  Platform,
-  ScrollView,
+  Animated,
+  Platform
 } from 'react-native';
-import { useSafeAreaInsets, SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocalSearchParams } from 'expo-router';
 import { use2goStore } from '../../../goStore';
 import MessageInput from '../../../components/MessageInput';
 
-const Cross = require('../../../assets/icons/cross.png');
-const Docs = require('../../../assets/icons/docs.png');
-const Mic = require('../../../assets/icons/mic.png');
-const Camera = require('../../../assets/icons/camera.png');
-
 export default function Chats() {
+  const [message, setMessage] = useState('');
+  const [keyboardHeight] = useState(new Animated.Value(0));
+  
   const insets = useSafeAreaInsets();
   const { id } = useLocalSearchParams<{ id: string }>();
   const friendId = Number(id);
@@ -31,14 +27,40 @@ export default function Chats() {
     if (id) getFriendById(friendId);
   }, [id, friendId, getFriendById]);
 
-  const [message, setMessage] = useState('');
+  // Check for keyboard height
+  useLayoutEffect(() => {
+    const showKeyboard = Keyboard.addListener(
+      Platform.OS === "ios" ? "keyboardWillShow" : "keyboardDidShow",
+      (e) => {
+        Animated.timing(keyboardHeight, {
+          toValue: e.endCoordinates.height,
+          duration: 0,
+          useNativeDriver: false
+        }).start();
+      }
+    );
 
-  const handleSendMessage = () => {
-    if (!message.trim()) return;
-    // TODO: send message
-    setMessage('');
+    const hideKeyboard = Keyboard.addListener(
+      Platform.OS === "ios" ? "keyboardWillHide" : "keyboardDidHide",
+      (e) => {
+        Animated.timing(keyboardHeight,{
+          toValue: 0,
+          duration: 0,
+          useNativeDriver: false,
+        }).start();
+      }
+    );
+
+    return () => {
+      showKeyboard.remove();
+      hideKeyboard.remove();
+    }
+  }, []);
+
+
+  const animatedStyle = {
+    paddingBottom: keyboardHeight,
   };
-
 
   const renderMessageItem = useCallback(({ item }: { item: any }) => {
     const isMe = item.sender === 'You';
@@ -62,31 +84,27 @@ export default function Chats() {
 
 
   return (
-    <KeyboardAvoidingView className='flex-1' behavior="position">
-      {/* Chat list */}
-      <View>
-        <FlatList
-          data={currentFriend?.chats ?? []}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={renderMessageItem}
-          // Make the list fill space and scroll properly even when few items
-          contentContainerStyle={{
-            paddingHorizontal: 14,
-            paddingBottom: (insets.bottom || 0) + 96, // leave room for input bar
-            // flexGrow: 1,
-          }}
-          ItemSeparatorComponent={() => <View style={{ height: 30 }} />}
-          keyboardShouldPersistTaps="handled"
-          keyboardDismissMode="on-drag"
-          onScrollBeginDrag={() => {
-            Keyboard.dismiss();
-            setShowCallOption(false);
-          }}
-        />
-      </View>
+    <Animated.View className='flex-1 bg-[#0b304a] pt-3' style={animatedStyle}>
+        {/* Chat list */}
+      <FlatList
+        data={currentFriend?.chats ?? []}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={renderMessageItem}
+        // Make the list fill space and scroll properly even when few items
+        contentContainerStyle={{
+          paddingHorizontal: 14,
+          paddingBottom: (insets.bottom || 0) + 16, // leave room for input bar
+          // flexGrow: 1,
+        }}
+        ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+        keyboardShouldPersistTaps="handled"
+        onScrollBeginDrag={() => {
+          setShowCallOption(false);
+        }}
+      />
 
-      {/* Input bar */}
-      <MessageInput />
-    </KeyboardAvoidingView>
+        {/* Input bar */}
+        <MessageInput />
+    </Animated.View>
   )
 }
