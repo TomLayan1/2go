@@ -12,7 +12,7 @@ export default function StarLevel() {
   }
   
   return (
-    <View className='bg-white/20 border border-white/25 rounded-2xl p-3 mb-14 relative'>
+    <View className='bg-white/10 border border-white/15 rounded-2xl p-3 mb-12 relative'>
       <View className='w-full flex-row items-center justify-between mb-4'>
         <Text className='text-white text-2xl font-bold'>Your star level</Text>
         <Pressable onPress={() => setShowLevels(true)} className='bg-white py-1 px-3 text-2xl font-extrabold rounded-full'>

@@ -8,20 +8,20 @@ import SettingsHeader from '../../../components/SettingsHeader'
 
 export default function index() {
   return (
-    <SafeAreaView className='bg-[#0b304a] flex-1 px-3' edges={['top']}>
-      <ScrollView
+    <SafeAreaView className='bg-[#0b304a] flex-1 px-3 pt-3' edges={['top']}>
+      <SettingsHeader />
+      {/* <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-          paddingTop: 0,
+          paddingTop: 27,
           paddingBottom: 10,
           flexGrow: 1,
         }}
-      >
-        {/* <SettingsHeader /> */}
+      > */}
         <StarLevel />
         <Contacts />
         <Others />
-      </ScrollView>
+      {/* </ScrollView> */}
     </SafeAreaView>
   )
 }

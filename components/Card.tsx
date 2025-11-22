@@ -3,6 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { ImageSourcePropType } from "react-native";
 import { FRIENDS } from "../data";
 import { useRouter } from "expo-router";
+import { use2goStore } from "../goStore";
 
 
 interface ChatsType {
@@ -27,10 +28,11 @@ type ChatListPropType = {
 }
 
 export default function Card({ section }: ChatListPropType) {
+  const { friendList } = use2goStore()
   const router = useRouter();
 
   // Filter friend line
-  const filteredList: FriendType[] = FRIENDS?.filter(item => item.availability === section.toLowerCase())
+  const filteredList: FriendType[] = friendList?.filter(item => item.availability === section.toLowerCase())
 
   return (
     <View className="flex-1">
@@ -46,7 +48,7 @@ export default function Card({ section }: ChatListPropType) {
               <View className="flex-1 flex-col gap-1.5">
                 <Text className="text-[15px] text-white">{item.username}</Text>
                 <Text
-                  className="text-[15px] text-[#c7c3cd] text-nowrap overflow-ellipsis"
+                  className="text-[15px] text-[#989898] text-nowrap overflow-ellipsis"
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >{item.status}</Text>

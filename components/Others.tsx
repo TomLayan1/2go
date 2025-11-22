@@ -31,9 +31,9 @@ export default function Others() {
   ]
 
   return (
-    <View className='bg-white/20 border border-white/25 rounded-2xl overflow-hidden'>
+    <View className='bg-white/10 border border-white/15 rounded-2xl overflow-hidden'>
       {others?.map((item, i) => (
-        <View key={i} className={`flex-row items-center justify-between py-3 px-3 ${i !== 3 ? 'border-[0.5px] border-white/25' : ''}`}>
+        <View key={i} className={`flex-row items-center justify-between py-2 px-3 ${i !== 3 ? 'border-[0.5px] border-white/25' : ''}`}>
           <View className='flex-row items-center gap-2'>
             {item.icon}
             <Text className='text-white text-base'>{item.name}</Text>

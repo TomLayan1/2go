@@ -10,7 +10,7 @@ export default function SettingsHeader() {
 
   return (
     // <View className='bg-[#0b304a] px-3 pt-1 pb-0'>
-      <View className='bg-white/20 border border-white/25 rounded-2xl mb-14'>
+      <View className='bg-white/10 border border-white/15 rounded-2xl mb-12'>
         <View className="flex-row items-center gap-3 p-5">
           <Pressable onPress={() => route.back()}>
             <Ionicons name="arrow-back-outline" size={24} color="white" />

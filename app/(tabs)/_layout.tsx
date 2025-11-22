@@ -1,10 +1,11 @@
 import { Tabs, usePathname } from "expo-router";
-import { Image } from "react-native";
+import { Image, View } from "react-native";
 
 // icons
 const StoriesIcon = require("../../assets/icons/stories.png");
 const CallIcon = require("../../assets/icons/phone.png");
 const ChatRightIcon = require("../../assets/icons/chat-right.png");
+const ChatLeftIcon = require("../../assets/icons/chat-left.png");
 const CommunitiesIcon = require("../../assets/icons/communities.png");
 const SettingsIcon = require("../../assets/icons/settings.png");
 
@@ -40,10 +41,11 @@ export default function RootLayout() {
         name="Stories"
         options={{
           title: "Stories",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: () => (
             <Image
               source={StoriesIcon}
-              style={{ width: size, height: size, tintColor: color }}
+              resizeMode="contain"
+              className="w-7 h-7"
             />
           ),
         }}
@@ -53,10 +55,11 @@ export default function RootLayout() {
         name="Calls"
         options={{
           title: "Calls",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: () => (
             <Image
               source={CallIcon}
-              style={{ width: size, height: size, tintColor: color }}
+              resizeMode="contain"
+              className="w-7 h-7"
             />
           ),
         }}
@@ -66,11 +69,19 @@ export default function RootLayout() {
         name="(Chats)"
         options={{
           title: "Chats",
-          tabBarIcon: ({ color, size }) => (
-            <Image
-              source={ChatRightIcon}
-              style={{ width: size, height: size, tintColor: color }}
-            />
+          tabBarIcon: () => (
+            <View className="relative">
+              <Image
+                source={ChatLeftIcon}
+                resizeMode="contain"
+                className="w-7 h-7 absolute -top-[1] -left-[1]"
+              />
+              <Image
+                source={ChatRightIcon}
+                resizeMode="contain"
+                className="w-7 h-7"
+              />
+            </View>
           ),
         }}
       />
@@ -79,10 +90,11 @@ export default function RootLayout() {
         name="Communities"
         options={{
           title: "Communities",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: () => (
             <Image
               source={CommunitiesIcon}
-              style={{ width: size, height: size, tintColor: color }}
+              resizeMode="contain"
+              className="w-7 h-7"
             />
           ),
         }}
@@ -92,10 +104,11 @@ export default function RootLayout() {
         name="(Settings)"
         options={{
           title: "Settings",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: () => (
             <Image
               source={SettingsIcon}
-              style={{ width: size, height: size, tintColor: color }}
+              resizeMode="contain"
+              className="w-7 h-7"
             />
           ),
         }}

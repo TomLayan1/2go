@@ -9,7 +9,14 @@ export default function AuthLayout() {
         name='GetStarted'
         options={{ headerShown: false }}
       />
-      <Stack.Screen name='Login' options={{ headerShown: false }} />
+      <Stack.Screen name='Login' options={{
+        headerStyle: {
+          backgroundColor: "#0b304a",
+        },
+        headerShadowVisible: false,
+        headerTintColor: "#ffffff",
+        title: "",
+      }} />
     </Stack>
   )
 }
