@@ -5,8 +5,12 @@ import Levels from './Levels';
 const master = require('../assets/icons/master.png');
 const ultimate = require('../assets/icons/ultimate.png')
 
-export default function StarLevel() {
-  const [showLevels, setShowLevels] = useState(false);
+type StarLevelPropType = {
+  showLevels: boolean;
+  setShowLevels: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function StarLevel({showLevels, setShowLevels}: StarLevelPropType) {
   const calc = (value: number) => {
     return value.toFixed(1)
   }
@@ -35,7 +39,7 @@ export default function StarLevel() {
       <Text className='text-white text-base'>You're {calc(100 - 84.1)}% away from reaching ultimate</Text>
 
       {/* Levels */}
-      {showLevels && <Levels setShowLevels={setShowLevels} />}
+      {showLevels && <Levels />}
     </View>
   )
 }

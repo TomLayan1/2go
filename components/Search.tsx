@@ -9,8 +9,7 @@ const SearchIcon = require('../assets/icons/search.png')
 export default function Search() {
   const [searchInput, setSearchInput] = useState<string>("");
   const { filterFriends, friendList } = use2goStore();
-  console.log(friendList)
-
+  
   const handleSearch = (inputValue: string) => {
     filterFriends(inputValue);
     setSearchInput(inputValue);
