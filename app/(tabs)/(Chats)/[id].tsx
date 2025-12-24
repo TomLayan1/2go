@@ -1,4 +1,8 @@
-import React, { useLayoutEffect, useState, useCallback } from 'react';
+import React, {
+  useLayoutEffect,
+  useState,
+  useCallback
+} from 'react';
 import {
   Text,
   View,
@@ -12,10 +16,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocalSearchParams } from 'expo-router';
 import { use2goStore } from '../../../goStore';
 import MessageInput from '../../../components/MessageInput';
+import ChatBg from '../../../components/ChatBg';
+
+const heartIcon = require('../../../assets/chatIcons/chat-pg-heart-icon.png')
+const chatIcon = require('../../../assets/chatIcons/chat-pg-chat-icon.png')
 
 export default function Chats() {
-  const [message, setMessage] = useState('');
   const [keyboardHeight] = useState(new Animated.Value(0));
+  console.log('Keyboard height: ', keyboardHeight)
   
   const insets = useSafeAreaInsets();
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -67,11 +75,11 @@ export default function Chats() {
     const isText = typeof item.message === 'string';
     return (
       <View
-        className={`${!isMe ? 'bg-[#247847] self-start' : 'bg-[#556f82] self-end'}
-          min-w-[78%] ${isText ? 'py-3 px-2' : 'p-1'} rounded-2xl relative overflow-hidden`}
+        className={`${!isMe ? 'bg-[#247847] border-[#247847] self-start' : 'bg-[#556f82] border-[#556f82] self-end'}
+          max-w-[78%] ${isText ? 'py-3 px-2' : ''} ${isText ? '' : 'border-2'} rounded-2xl relative overflow-hidden`}
       >
         {isText ? (
-          <Text className="text-white text-[15px] mb-2">{item.message}</Text>
+          <Text className="text-white text-[15px] mb-4">{item.message}</Text>
         ) : (
           <Image source={item.message} resizeMode="contain" />
         )}
@@ -85,16 +93,17 @@ export default function Chats() {
 
   return (
     <Animated.View className='flex-1 bg-[#0b304a] pt-3' style={animatedStyle}>
-        {/* Chat list */}
+      {/* Background icons */}
+      <ChatBg />
+
+      {/* Chat list */}
       <FlatList
         data={currentFriend?.chats ?? []}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderMessageItem}
-        // Make the list fill space and scroll properly even when few items
         contentContainerStyle={{
           paddingHorizontal: 14,
-          paddingBottom: (insets.bottom || 0) + 16, // leave room for input bar
-          // flexGrow: 1,
+          paddingBottom: (insets.bottom || 0) + 16,
         }}
         ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
         keyboardShouldPersistTaps="handled"

@@ -168,7 +168,8 @@ export default function GetStarted() {
           className='w-[60%]'
         />
         <Pressable className='bg-[#3abd43] w-[80%] py-5 rounded-full mx-auto'>
-          <Link href="/(auth)/Login" className='text-white text-center text-[17px]'>
+          <Link href="/(auth)/Login
+          " className='text-white text-center text-[17px]'>
             Get Started
           </Link>
         </Pressable>

@@ -11,12 +11,12 @@ type SettingsHeaderPropType = {
 }
 
 export default function SettingsHeader({ showLevels, setShowLevels }: SettingsHeaderPropType) {
-  const route = useRouter();
+  const router = useRouter();
 
   return (
     <View className='bg-white/10 border border-white/15 rounded-2xl mb-12'>
       <View className="flex-row items-center gap-3 p-5">
-        <Pressable onPress={() => {showLevels ? setShowLevels(false) : route.push('(Chats)')}}>
+        <Pressable onPress={() => {showLevels ? setShowLevels(false) : router.push('(Chats)')}}>
           <Ionicons name="arrow-back-outline" size={24} color="white" />
         </Pressable>
         <Image

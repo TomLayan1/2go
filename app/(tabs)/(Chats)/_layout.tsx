@@ -7,6 +7,7 @@ import CallOptions from "../../../components/CallOptions";
 
 export default function ChatsLayout() {
   const { currentFriend, toggleCallOption, showCallOption } = use2goStore();
+  console.log(showCallOption)
   const route = useRouter();
 
   return (
@@ -21,7 +22,7 @@ export default function ChatsLayout() {
               <View className="bg-[#23455c] flex-row items-center justify-between px-4 py-5 pb-3 mt-12">
                 {/* Left Section */}
                 <View className="flex-row items-center gap-3">
-                  <Pressable onPress={() => route.back()}>
+                  <Pressable onPress={() => {showCallOption ? toggleCallOption() : route.back()}}>
                     <Ionicons name="arrow-back-outline" size={24} color="white" />
                   </Pressable>
                   <Image

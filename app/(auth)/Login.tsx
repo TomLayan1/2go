@@ -16,14 +16,13 @@ const heart = require('../../assets/chatIcons/heart.png')
 export default function Login() {
   const scrollViewRef = useRef<ScrollView>(null);
   return (
-    <KeyboardAvoidingView className='flex-1 bg-black' enabled={true} behavior={"padding"}>
-
-      <ScrollView
+    <ScrollView
         ref={scrollViewRef}
         className='bg-[#0b304a] flex-'
         contentContainerStyle={{ flexGrow: 1 }}
         bounces={false}
       >
+    <KeyboardAvoidingView className='flex-1' enabled={true} behavior={"padding"}>
           <View className='relative bg-black'>
             {/* Right */}
             <Image
@@ -150,7 +149,7 @@ export default function Login() {
             <Text className='text-white text-center text-[18px]'>Continue</Text>
           </Pressable>
         </View>
-      </ScrollView>
     </KeyboardAvoidingView>
+      </ScrollView>
   )
 }
